@@ -8,6 +8,7 @@ namespace mmw.Web.Controllers
 {
     public class HomeController : Controller
     {
+        MusicDbContext db = new MusicDbContext();
         // GET: Home
         public ActionResult Index()
         {

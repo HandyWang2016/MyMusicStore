@@ -14,6 +14,6 @@ namespace mmw.Web.Models
         public string AreaName { get; set; }
 
         //导航属性
-        public List<Singer> Singers { get; set; }
+        public virtual List<Singer> Singers { get; set; }
     }
 }

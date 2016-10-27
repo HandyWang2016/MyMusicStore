@@ -14,6 +14,6 @@ namespace mmw.Web.Models
         public string SchoolDesc { get; set; }
 
         //导航属性
-        public List<Song> Songs { get; set; }
+        public virtual List<Song> Songs { get; set; }
     }
 }

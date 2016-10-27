@@ -20,8 +20,8 @@ namespace mmw.Web.Models
         //外键
         public int AreaId { get; set; }
         //导航属性
-        public List<Song> Songs { get; set; }
-        public Area Area { get; set; }
+        public virtual List<Song> Songs { get; set; }
+        public virtual Area Area { get; set; }
 
 
 

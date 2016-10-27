@@ -12,13 +12,87 @@ namespace mmw.Web
     /// </summary>
     public class MusicDbContext : DbContext
     {
+        public virtual DbSet<Singer> Singers { get; set; }
+        public virtual DbSet<Song> Songs { get; set; }
+        public virtual DbSet<School> Schools { get; set; }
+        public virtual DbSet<Area> Areas { get; set; }
+        public virtual DbSet<Fancier> Fanciers { get; set; }
+        public virtual DbSet<Grade> Grades { get; set; }
+
         public MusicDbContext() : base("name=mmwDB")
         {
+            Database.SetInitializer<MusicDbContext>(new MyCreateDatabaseIfNotExists());
         }
 
-        public DbSet<Singer> Singers { get; set; }
-        public DbSet<Song> Songs { get; set; }
-        public DbSet<School> Schools { get; set; }
-        public DbSet<Area> Areas { get; set; }
+
+    }
+
+    /// <summary>
+    /// 定义种子数据
+    /// </summary>
+    public class MyCreateDatabaseIfNotExists : DropCreateDatabaseAlways<MusicDbContext>
+    {
+        protected override void Seed(MusicDbContext context)
+        {
+            Area area = new Area()
+            {
+                AreaId = 1,
+                AreaName = "大陆",
+            };
+            Singer singer = new Singer()
+            {
+                SingerId = 1,
+                Sex = 1,
+                SingerName = "刘德华"
+            };
+            Song song = new Song()
+            {
+                SongId = 1,
+                SongTitle = "练习",
+                Path = "/",
+                CreateTime = DateTime.Now,
+                PlayTimes = 0,
+                PraiseTimes = 0
+            };
+
+            School school = new School()
+            {
+                SchoolId = 1,
+                SchoolDesc = "流行"
+            };
+
+            Fancier fancier = new Fancier()
+            {
+                FancierId = 1,
+                FancierName = "Jack",
+                JoinTime = DateTime.Now
+            };
+
+            Grade grade = new Grade()
+            {
+                GradeId = 1,
+                HonorName = "小将",
+                LogoPath = "/",
+                Desc = "注册成为网站会员即为'小将'"
+            };
+
+            song.Fancier = fancier;
+            song.School = school;
+            song.Singer = singer;
+
+            singer.Area = area;
+            singer.Songs.Add(song);
+
+            fancier.Grade = grade;
+
+            context.Areas.Add(area);
+            context.Singers.Add(singer);
+            context.Songs.Add(song);
+            context.Schools.Add(school);
+            context.Fanciers.Add(fancier);
+            context.Grades.Add(grade);
+
+            base.Seed(context);
+        }
     }
 }
