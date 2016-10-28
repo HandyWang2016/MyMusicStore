@@ -22,15 +22,13 @@ namespace mmw.Web
         public MusicDbContext() : base("name=mmwDB")
         {
             Database.SetInitializer<MusicDbContext>(new MyCreateDatabaseIfNotExists());
-        }
-
-
+        }   
     }
 
     /// <summary>
     /// 定义种子数据
     /// </summary>
-    public class MyCreateDatabaseIfNotExists : DropCreateDatabaseAlways<MusicDbContext>
+    public class MyCreateDatabaseIfNotExists : CreateDatabaseIfNotExists<MusicDbContext>
     {
         protected override void Seed(MusicDbContext context)
         {
@@ -43,29 +41,14 @@ namespace mmw.Web
             {
                 SingerId = 1,
                 Sex = 1,
-                SingerName = "刘德华"
-            };
-            Song song = new Song()
-            {
-                SongId = 1,
-                SongTitle = "练习",
-                Path = "/",
-                CreateTime = DateTime.Now,
-                PlayTimes = 0,
-                PraiseTimes = 0
+                SingerName = "刘德华",
+                Area=area
             };
 
             School school = new School()
             {
                 SchoolId = 1,
                 SchoolDesc = "流行"
-            };
-
-            Fancier fancier = new Fancier()
-            {
-                FancierId = 1,
-                FancierName = "Jack",
-                JoinTime = DateTime.Now
             };
 
             Grade grade = new Grade()
@@ -76,14 +59,26 @@ namespace mmw.Web
                 Desc = "注册成为网站会员即为'小将'"
             };
 
-            song.Fancier = fancier;
-            song.School = school;
-            song.Singer = singer;
+            Fancier fancier = new Fancier()
+            {
+                FancierId = 1,
+                FancierName = "Jack",
+                JoinTime = DateTime.Now,
+                Grade=grade
+            };
 
-            singer.Area = area;
-            singer.Songs.Add(song);
-
-            fancier.Grade = grade;
+            Song song = new Song()
+            {
+                SongId = 1,
+                SongTitle = "练习",
+                Path = "/",
+                CreateTime = DateTime.Now,
+                PlayTimes = 0,
+                PraiseTimes = 0,
+                Singer=singer,
+                School=school,
+                Fancier=fancier
+            };
 
             context.Areas.Add(area);
             context.Singers.Add(singer);

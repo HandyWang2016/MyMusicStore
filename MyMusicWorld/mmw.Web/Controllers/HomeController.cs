@@ -12,6 +12,7 @@ namespace mmw.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            var singer = db.Singers.ToList();
             return View();
         }
     }
