@@ -10,7 +10,7 @@ namespace mmw.Web.Models
     /// <summary>
     /// 歌曲信息
     /// </summary>
-    [Table("Songs")]
+    [Table("mmw_Songs")]
     public class Song
     {
         [Key]
