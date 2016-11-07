@@ -13,8 +13,6 @@ namespace mmw.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            LogHelper.Error("test");
-            var singer = db.Singers.ToList();
             return View();
         }
     }
