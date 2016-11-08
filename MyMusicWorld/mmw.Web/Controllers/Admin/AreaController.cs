@@ -15,7 +15,23 @@ namespace mmw.Web.Controllers.Admin
         public ActionResult Index()
         {
             var areas = context.Areas.ToList();
-            return View();
+            return View(areas);
+        }
+
+        /// <summary>
+        /// 删除区域
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Delete(int id)
+        {
+            Area area = context.Areas.Find(id);
+            if (area!=null)
+            {
+                context.Entry(area).State = System.Data.Entity.EntityState.Deleted;
+                context.SaveChanges();
+            }
+            return RedirectToAction("Index");
         }
 
         /// <summary>

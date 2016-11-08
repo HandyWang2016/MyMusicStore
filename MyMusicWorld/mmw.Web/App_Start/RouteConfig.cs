@@ -18,6 +18,13 @@ namespace mmw.Web
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name:"Admin",
+                url:"",
+                defaults:new {}
+
+                );
         }
     }
 }
