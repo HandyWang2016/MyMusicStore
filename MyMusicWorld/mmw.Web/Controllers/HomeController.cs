@@ -7,9 +7,11 @@ using System.Web.Mvc;
 
 namespace mmw.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        MusicDbContext db = new MusicDbContext();
+        //获取数据操作对象
+        MusicDbContext context = CurContext();
+
         // GET: Home
         public ActionResult Index()
         {
