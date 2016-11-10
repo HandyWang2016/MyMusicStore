@@ -1,0 +1,34 @@
+﻿@model IEnumerable<mmw.Web.Models.Grade>
+
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+
+<table>
+    <tr><th>ID</th><th>荣誉</th><th>LOGO</th><th>描述</th><th>操作</th></tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.GradeId
+            </td>
+            <td>@item.HonorName</td>
+            <td>@item.LogoPath</td>
+            <td>@item.Desc</td>
+            <td>@Html.ActionLink("Delete", "Delete", "Grade", new { id = item.GradeId }, null)</td>
+
+        </tr>
+    }
+</table>
+<form method="post" action="Grade/Create">
+    <div>
+        荣誉名称:<input type="text" name="HonorName" />
+        LOGO:<input type="text" name="LogoPath" />
+        描述:<input type="text" name="Desc" />
+    </div>
+    <div>
+        <input type="submit" />
+    </div>
+</form>

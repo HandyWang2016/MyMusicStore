@@ -152,6 +152,8 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\Admin\AreaController.cs" />
+    <Compile Include="Controllers\Admin\GradeController.cs" />
+    <Compile Include="Controllers\Admin\SchoolController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -180,6 +182,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Area\Create.cshtml" />
     <Content Include="Views\Area\Index.cshtml" />
+    <Content Include="Views\School\Index.cshtml" />
+    <Content Include="Views\Grade\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

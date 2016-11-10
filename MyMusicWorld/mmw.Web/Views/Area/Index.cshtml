@@ -8,7 +8,7 @@
 }
 
 <table>
-    <tr><th>ID</th><th>名称</th></tr>
+    <tr><th>ID</th><th>名称</th><th>操作</th></tr>
     @foreach (var item in Model)
     {
         <tr>
@@ -16,11 +16,10 @@
                 @item.AreaId
             </td>
             <td>@item.AreaName</td>
-            <td>@Html.Action("Delete", "Admin/Delete", new { id = item.AreaId })</td>
+            <td>@Html.ActionLink("Delete", "Delete", "Area", new { id = item.AreaId }, null)</td>
+
         </tr>
     }
-
-
 </table>
 <form method="post" action="Area/Create">
     <div>
