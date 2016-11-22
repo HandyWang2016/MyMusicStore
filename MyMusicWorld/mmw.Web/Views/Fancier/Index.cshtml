@@ -1,0 +1,42 @@
+﻿@model IEnumerable<mmw.Web.Models.Fancier>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<div>
+    <table>
+        <tr><th>姓名</th><th>等级</th><th>加入时间</th><th>操作</th></tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FancierName</td>
+                <td>@item.Grade.HonorName</td>
+                <td>@item.JoinTime</td>
+                <td>@Html.ActionLink("Delete", "Delete", new { id = item.FancierId })</td>
+            </tr>
+        }
+    </table>
+</div>
+<div>
+    <h3>新友加入</h3>
+    <form method="post" action="Fancier/Add">
+        <table>
+            <tr><td>姓名:</td><td><input type="text" name="FancierName" /></td></tr>
+            <tr>
+                <td>等级:</td>
+                <td>
+                    <select name="GradeId">
+                        @foreach (var item in (IEnumerable<mmw.Web.Models.Grade>)ViewBag.grades)
+                        {
+                            <option value="@item.GradeId">@item.HonorName</option>
+                        }
+
+                    </select>
+                </td>
+            </tr>
+            <tr><td colspan="2"><input type="submit" value="添加" /></td></tr>
+        </table>
+    </form>
+</div>

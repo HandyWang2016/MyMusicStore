@@ -1,0 +1,52 @@
+﻿@model IEnumerable<mmw.Web.Models.Singer>
+
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+<table>
+    <tr><th>歌手姓名</th><th>性别</th><th>区域</th><th>操作</th></tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.SingerName</td>
+            <td>@(item.Sex == 1 ? "男" : "女")</td>
+            <td>@item.Area.AreaName</td>
+            <td>@Html.ActionLink("Delete", "Delete", new { id = item.SingerId })</td>
+        </tr>
+    }
+</table>
+
+<div><h3>添加歌手</h3></div>
+<div>
+    <form method="post" action="Singer/Add">
+        <table>
+            <tr><td>姓名:</td><td><input name="SingerName" /></td></tr>
+            <tr>
+                <td>性别:</td>
+                <td>
+                    <select name="Sex">
+                        <option selected="selected" value="1">男</option>
+                        <option value="2">女</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>区域:</td>
+                <td>
+                    <select name="AreaId">
+                        @foreach (var item in (IEnumerable<mmw.Web.Models.Area>)ViewBag.Areas)
+                        {
+                            <option value="@item.AreaId">@item.AreaName</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr><td colspan="2"><input type="submit" value="添加" /></td></tr>
+        </table>
+    </form>
+</div>
+
+
+

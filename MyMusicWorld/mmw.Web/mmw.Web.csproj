@@ -152,8 +152,10 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\Admin\AreaController.cs" />
+    <Compile Include="Controllers\Admin\FancierController.cs" />
     <Compile Include="Controllers\Admin\GradeController.cs" />
     <Compile Include="Controllers\Admin\SchoolController.cs" />
+    <Compile Include="Controllers\Admin\SingerController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -184,6 +186,8 @@
     <Content Include="Views\Area\Index.cshtml" />
     <Content Include="Views\School\Index.cshtml" />
     <Content Include="Views\Grade\Index.cshtml" />
+    <Content Include="Views\Singer\Index.cshtml" />
+    <Content Include="Views\Fancier\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
