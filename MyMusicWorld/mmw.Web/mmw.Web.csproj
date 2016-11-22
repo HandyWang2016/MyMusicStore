@@ -98,6 +98,7 @@
     <Content Include="Images\2014092917281677.jpg" />
     <Content Include="Images\headBanner_old.jpg" />
     <Content Include="Images\headBanner.jpg" />
+    <Content Include="Plugins\ajaxfileupload.js" />
     <Content Include="Plugins\musicplayer_1.0.1\demo\css\demo.css" />
     <Content Include="Plugins\musicplayer_1.0.1\demo\images\bg.jpg" />
     <Content Include="Plugins\musicplayer_1.0.1\demo\images\title.png" />
@@ -156,6 +157,8 @@
     <Compile Include="Controllers\Admin\GradeController.cs" />
     <Compile Include="Controllers\Admin\SchoolController.cs" />
     <Compile Include="Controllers\Admin\SingerController.cs" />
+    <Compile Include="Controllers\Admin\SongsController.cs" />
+    <Compile Include="Controllers\Admin\UploadController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -188,6 +191,8 @@
     <Content Include="Views\Grade\Index.cshtml" />
     <Content Include="Views\Singer\Index.cshtml" />
     <Content Include="Views\Fancier\Index.cshtml" />
+    <Content Include="Views\Upload\Index.cshtml" />
+    <Content Include="Songs\在线订单报表.xlsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -198,6 +203,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Songs\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\mmw.Common\mmw.Common.csproj">

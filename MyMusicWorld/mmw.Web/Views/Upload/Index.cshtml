@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Plugins/ajaxfileupload.js"></script>
+<script>
+    $(function () {
+        $("#btnUpload").click(function () {
+            if ($("#file1").val() != "") {
+                ajaxFileupload();
+            } else {
+                alert("请选择文件");
+            }
+        });
+    });
+
+    function ajaxFileupload() {
+        $.ajaxFileUpload(
+            {
+                url: "Upload/Upload",
+                secureuri: false,
+                fileElementId: "file1",
+                dataType: "json",
+                success: function (data, status)  //服务器成功响应处理函数
+                {
+                    if (typeof (data.error) != 'undefined' && data.error != '') {
+                        alert(data.error);
+                    } else {
+                        $("input[name=Path]").val(data.filePath);
+                        alert(data.msg);
+                    }
+                },
+                error: function (data, status, e)//服务器响应失败处理函数
+                {
+                    alert(e);
+                }
+            }
+            );
+    }
+</script>
+<h2>歌曲上传</h2>
+
+<div>
+    <form method="post" action="Upload/Add">
+        <table>
+            <tr><td>歌曲名称:</td><td><input type="text" name="SongTitle" /></td></tr>
+            <tr><td>选择文件:</td><td><input type="file" id="file1" name="file1" /></td></tr>
+            <tr><td colspan="2"><input id="btnUpload" type="button" value="上传" /></td></tr>
+            <tr>
+                <td>流派:</td>
+                <td>
+                    <select name="SchoolId">
+                        @foreach (var item in (IEnumerable<mmw.Web.Models.School>)ViewBag.schools)
+                        {
+                            <option value="@item.SchoolId">@item.SchoolDesc</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>歌手:</td>
+                <td>
+                    <select name="SingerId">
+                        @foreach (var item in (IEnumerable<mmw.Web.Models.Singer>)ViewBag.singers)
+                        {
+                            <option value="@item.SingerId">@item.SingerName</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>分享人:</td>
+                <td>
+                    <select name="FancierId">
+                        @foreach (var item in (IEnumerable<mmw.Web.Models.Fancier>)ViewBag.fanciers)
+                        {
+                            <option value="@item.FancierId">@item.FancierName</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="添加" /></td>
+            </tr>
+        </table>
+        <input type="hidden" name="Path" />
+    </form>
+</div>
+
+
+
