@@ -152,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Admin\Admin_HomeController.cs" />
     <Compile Include="Controllers\Admin\AreaController.cs" />
     <Compile Include="Controllers\Admin\FancierController.cs" />
     <Compile Include="Controllers\Admin\GradeController.cs" />
@@ -192,7 +193,7 @@
     <Content Include="Views\Singer\Index.cshtml" />
     <Content Include="Views\Fancier\Index.cshtml" />
     <Content Include="Views\Upload\Index.cshtml" />
-    <Content Include="Songs\在线订单报表.xlsx" />
+    <Content Include="Views\Admin_Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -202,6 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Songs\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Songs\" />
   </ItemGroup>

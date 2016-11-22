@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h2>后台管理</h2>
+
+<div>
+    <ul>
+        <li>@Html.ActionLink("地区管理", "Index", "Area")</li>
+        <li>@Html.ActionLink("流派管理", "Index", "School")</li>
+        <li>@Html.ActionLink("等级管理", "Index", "Grade")</li>
+        <li>@Html.ActionLink("会员管理", "Index", "Fancier")</li>
+        <li>@Html.ActionLink("歌手管理", "Index", "Singer")</li>
+        <li>@Html.ActionLink("歌曲管理", "Index", "Upload")</li>
+    </ul>
+</div>
