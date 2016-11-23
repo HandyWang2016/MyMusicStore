@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = null;
+    Layout = "/Views/Shared/_Layout_admin.cshtml";
 }
 @model IEnumerable<mmw.Web.Models.Area>
 
@@ -7,7 +7,7 @@
     ViewBag.Title = "AreaList";
 }
 
-<table>
+<table class="table table-striped">
     <tr><th>ID</th><th>名称</th><th>操作</th></tr>
     @foreach (var item in Model)
     {
@@ -26,7 +26,8 @@
         区域名称:<input type="text" name="AreaName" />
     </div>
     <div>
-        <input type="submit" />
+        <input type="submit" class="btn btn-primary" value="提交" />
+        <input type="button" class="btn btn-sm btn-warning" onclick="location.href=''" value="取消"/>
     </div>
 </form>
 

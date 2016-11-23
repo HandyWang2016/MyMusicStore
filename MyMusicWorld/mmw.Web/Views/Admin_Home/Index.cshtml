@@ -1,18 +1,21 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    Layout = null;
+    Layout = "/Views/Shared/_Layout_admin.cshtml";
 }
 
-<h2>后台管理</h2>
-
-<div>
-    <ul>
-        <li>@Html.ActionLink("地区管理", "Index", "Area")</li>
-        <li>@Html.ActionLink("流派管理", "Index", "School")</li>
-        <li>@Html.ActionLink("等级管理", "Index", "Grade")</li>
-        <li>@Html.ActionLink("会员管理", "Index", "Fancier")</li>
-        <li>@Html.ActionLink("歌手管理", "Index", "Singer")</li>
-        <li>@Html.ActionLink("歌曲管理", "Index", "Upload")</li>
-    </ul>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">后台管理</h3>
+    </div>
+    <div class="panel-body">
+        <div class="list-group">
+            @Html.ActionLink("地区管理", "Index", "Area", null, new { @class = "list-group-item" })
+            @Html.ActionLink("流派管理", "Index", "School", null, new { @class = "list-group-item" })
+            @Html.ActionLink("等级管理", "Index", "Grade", null, new { @class = "list-group-item" })
+            @Html.ActionLink("会员管理", "Index", "Fancier", null, new { @class = "list-group-item" })
+            @Html.ActionLink("歌手管理", "Index", "Singer", null, new { @class = "list-group-item" })
+            @Html.ActionLink("歌曲管理", "Index", "Upload", null, new { @class = "list-group-item" })
+        </div>
+    </div>
 </div>
