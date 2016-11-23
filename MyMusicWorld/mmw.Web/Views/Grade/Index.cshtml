@@ -6,8 +6,8 @@
 }
 
 
-<table>
-    <tr><th>ID</th><th>荣誉</th><th>LOGO</th><th>描述</th><th>操作</th></tr>
+<table class="table table-striped">
+    <thead> <tr><th>ID</th><th>荣誉</th><th>LOGO</th><th>描述</th><th>操作</th></tr></thead>k
     @foreach (var item in Model)
     {
         <tr>
@@ -17,18 +17,23 @@
             <td>@item.HonorName</td>
             <td>@item.LogoPath</td>
             <td>@item.Desc</td>
-            <td>@Html.ActionLink("Delete", "Delete", "Grade", new { id = item.GradeId }, null)</td>
+            <td>@Html.ActionLink("Delete", "Delete", "Grade", new { id = item.GradeId }, new { @class = "btn btn-xs btn-danger" })</td>
 
         </tr>
     }
 </table>
 <form method="post" action="Grade/Create">
-    <div>
-        荣誉名称:<input type="text" name="HonorName" />
-        LOGO:<input type="text" name="LogoPath" />
-        描述:<input type="text" name="Desc" />
-    </div>
-    <div>
-        <input type="submit" />
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">添加等级</h3>
+        </div>
+        <div class="panel-body">
+            荣誉名称:<input type="text" name="HonorName" />
+            LOGO:<input type="text" name="LogoPath" />
+            描述:<input type="text" name="Desc" />
+
+            <input type="submit" class="btn btn-primary" value="提交" />
+            <input type="button" class="btn btn-sm btn-warning" onclick="location.href='Admin_home/index'" value="取消" />
+        </div>
     </div>
 </form>

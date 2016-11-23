@@ -8,7 +8,7 @@
 }
 
 <table class="table table-striped">
-    <tr><th>ID</th><th>名称</th><th>操作</th></tr>
+    <thead> <tr><th>ID</th><th>名称</th><th>操作</th></tr></thead>
     @foreach (var item in Model)
     {
         <tr>
@@ -16,19 +16,30 @@
                 @item.AreaId
             </td>
             <td>@item.AreaName</td>
-            <td>@Html.ActionLink("Delete", "Delete", "Area", new { id = item.AreaId }, null)</td>
+            <td>@Html.ActionLink("Delete", "Delete", "Area", new { id = item.AreaId }, new { @class = "btn btn-xs btn-danger" })</td>
 
         </tr>
     }
 </table>
 <form method="post" action="Area/Create">
-    <div>
-        区域名称:<input type="text" name="AreaName" />
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">添加地区</h3>
+        </div>
+
+        <div class="panel-body">
+            <div>
+                区域名称:<input type="text" name="AreaName" />
+            </div>
+            <div>
+                <input type="submit" class="btn btn-primary" value="提交" />
+                <input type="button" class="btn btn-sm btn-warning" onclick="location.href='Admin_home/index'" value="取消" />
+            </div>
+        </div>
     </div>
-    <div>
-        <input type="submit" class="btn btn-primary" value="提交" />
-        <input type="button" class="btn btn-sm btn-warning" onclick="location.href=''" value="取消"/>
-    </div>
+
+
+
 </form>
 
 

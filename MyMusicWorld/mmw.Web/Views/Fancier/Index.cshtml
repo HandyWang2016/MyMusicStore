@@ -6,37 +6,46 @@
 }
 
 <div>
-    <table>
-        <tr><th>姓名</th><th>等级</th><th>加入时间</th><th>操作</th></tr>
+    <table class="table table-striped">
+        <thead><tr><th>姓名</th><th>等级</th><th>加入时间</th><th>操作</th></tr></thead>
         @foreach (var item in Model)
         {
             <tr>
                 <td>@item.FancierName</td>
                 <td>@item.Grade.HonorName</td>
                 <td>@item.JoinTime</td>
-                <td>@Html.ActionLink("Delete", "Delete", new { id = item.FancierId })</td>
+                <td>@Html.ActionLink("Delete", "Delete", new { id = item.FancierId }, new { @class = "btn btn-xs btn-danger" })</td>
             </tr>
         }
     </table>
 </div>
-<div>
-    <h3>新友加入</h3>
-    <form method="post" action="Fancier/Add">
-        <table>
-            <tr><td>姓名:</td><td><input type="text" name="FancierName" /></td></tr>
-            <tr>
-                <td>等级:</td>
-                <td>
-                    <select name="GradeId">
-                        @foreach (var item in (IEnumerable<mmw.Web.Models.Grade>)ViewBag.grades)
-                        {
-                            <option value="@item.GradeId">@item.HonorName</option>
-                        }
+<form method="post" action="Fancier/Add">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">新友加入</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <tr><td>姓名:</td><td><input type="text" name="FancierName" /></td></tr>
+                <tr>
+                    <td>等级:</td>
+                    <td>
+                        <select name="GradeId">
+                            @foreach (var item in (IEnumerable<mmw.Web.Models.Grade>)ViewBag.grades)
+                            {
+                                <option value="@item.GradeId">@item.HonorName</option>
+                            }
 
-                    </select>
-                </td>
-            </tr>
-            <tr><td colspan="2"><input type="submit" value="添加" /></td></tr>
-        </table>
-    </form>
-</div>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input class="btn btn-primary" type="submit" value="添加" />
+                        <input type="button" class="btn btn-sm btn-warning" onclick="location.href='Admin_home/index'" value="取消" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</form>

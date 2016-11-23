@@ -187,7 +187,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Area\Index.cshtml" />
-    <Content Include="Views\School\Index.cshtml" />
     <Content Include="Views\Grade\Index.cshtml" />
     <Content Include="Views\Singer\Index.cshtml" />
     <Content Include="Views\Fancier\Index.cshtml" />
@@ -205,6 +204,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Songs\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\School\" />
     <Folder Include="Views\Songs\" />
   </ItemGroup>
   <ItemGroup>

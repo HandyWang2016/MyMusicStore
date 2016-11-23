@@ -3,7 +3,6 @@
     ViewBag.Title = "Index";
     Layout = "/Views/Shared/_Layout_admin.cshtml";
 }
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Plugins/ajaxfileupload.js"></script>
 <script>
     $(function () {
@@ -40,54 +39,59 @@
             );
     }
 </script>
-<h2>歌曲上传</h2>
-
 <div>
     <form method="post" action="Upload/Add">
-        <table>
-            <tr><td>歌曲名称:</td><td><input type="text" name="SongTitle" /></td></tr>
-            <tr><td>选择文件:</td><td><input type="file" id="file1" name="file1" /></td></tr>
-            <tr><td colspan="2"><input id="btnUpload" type="button" value="上传" /></td></tr>
-            <tr>
-                <td>流派:</td>
-                <td>
-                    <select name="SchoolId">
-                        @foreach (var item in (IEnumerable<mmw.Web.Models.School>)ViewBag.schools)
-                        {
-                            <option value="@item.SchoolId">@item.SchoolDesc</option>
-                        }
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>歌手:</td>
-                <td>
-                    <select name="SingerId">
-                        @foreach (var item in (IEnumerable<mmw.Web.Models.Singer>)ViewBag.singers)
-                        {
-                            <option value="@item.SingerId">@item.SingerName</option>
-                        }
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>分享人:</td>
-                <td>
-                    <select name="FancierId">
-                        @foreach (var item in (IEnumerable<mmw.Web.Models.Fancier>)ViewBag.fanciers)
-                        {
-                            <option value="@item.FancierId">@item.FancierName</option>
-                        }
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2"><input type="submit" value="添加" /></td>
-            </tr>
-        </table>
-        <input type="hidden" name="Path" />
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">歌曲上传</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <tr><td>歌曲名称:</td><td><input type="text" name="SongTitle" /></td></tr>
+                    <tr><td>选择文件:</td><td><input type="file" id="file1" name="file1" /></td></tr>
+                    <tr><td colspan="2"><input  class="btn btn-success" id="btnUpload" type="button" value="上传" /></td></tr>
+                    <tr>
+                        <td>流派:</td>
+                        <td>
+                            <select name="SchoolId">
+                                @foreach (var item in (IEnumerable<mmw.Web.Models.School>)ViewBag.schools)
+                                {
+                                    <option value="@item.SchoolId">@item.SchoolDesc</option>
+                                }
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>歌手:</td>
+                        <td>
+                            <select name="SingerId">
+                                @foreach (var item in (IEnumerable<mmw.Web.Models.Singer>)ViewBag.singers)
+                                {
+                                    <option value="@item.SingerId">@item.SingerName</option>
+                                }
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>分享人:</td>
+                        <td>
+                            <select name="FancierId">
+                                @foreach (var item in (IEnumerable<mmw.Web.Models.Fancier>)ViewBag.fanciers)
+                                {
+                                    <option value="@item.FancierId">@item.FancierName</option>
+                                }
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" class="btn btn-primary" value="添加" />
+                            <input type="button" class="btn btn-sm btn-warning" onclick="location.href='Admin_home/index'" value="取消" />
+                        </td>
+                    </tr>
+                </table>
+                <input type="hidden" name="Path" />
+            </div>
+        </div>
     </form>
 </div>
-
-
-
