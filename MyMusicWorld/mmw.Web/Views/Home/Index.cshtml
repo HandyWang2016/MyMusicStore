@@ -4,7 +4,7 @@
 }
 
 <script type="text/javascript">
-    var myPlaylist = [
+    var myPlaylist_old = [
     {
         mp3: 'SongRepository/1.mp3',
         title: 'Sample',
@@ -14,38 +14,18 @@
         price: '0.99',
         duration: '0:30',
         //cover: 'mix/1.png'
-    },
-    {
-        mp3: 'SongRepository/1.mp3',
-        title: 'Sample',
-        artist: 'Sample2',
-        rating: 4,
-        buy: '#',
-        price: '0.99',
-        duration: '0:30',
-        //cover: 'mix/1.png'
-    },
-    {
-        mp3: 'SongRepository/1.mp3',
-        title: 'Sample',
-        artist: 'Sample3',
-        rating: 4,
-        buy: '#',
-        price: '0.99',
-        duration: '0:30',
-        //cover: 'mix/1.png'
-    }
-    ];
+    }];
 
+    var myPlaylist=@Html.Raw(ViewBag.songs);
 
     $(document).ready(function () {
-        var description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id tortor nisi. Aenean sodales diam ac lacus elementum scelerisque. Suspendisse a dui vitae lacus faucibus venenatis vel id nisl. Proin orci ante, ultricies nec interdum at, iaculis venenatis nulla. ';
+        var description = 'The songs show here are all my favorite ones,just enjoy them,you will like it！';
 
         $('.songList').ttwMusicPlayer(myPlaylist, {
             autoPlay: false,
             description: description,
             jPlayer: {
-                swfPath: '../plugin/jquery-jplayer' //You need to override the default swf path any time the directory structure changes
+                swfPath: '../plugin/jquery-jplayer' 
             }
         });
     });
