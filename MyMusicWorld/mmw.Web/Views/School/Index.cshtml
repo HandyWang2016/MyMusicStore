@@ -1,0 +1,38 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout_admin.cshtml";
+}
+@model IEnumerable<mmw.Web.Models.School>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table table-striped">
+    <thead><tr><th>ID</th><th>名称</th><th>操作</th></tr></thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.SchoolId
+            </td>
+            <td>@item.SchoolDesc</td>
+            <td>@Html.ActionLink("Delete", "Delete", "School", new { id = item.SchoolId }, new { @class = "btn btn-xs btn-danger" })</td>
+
+        </tr>
+    }
+</table>
+
+<form method="post" action="School/Create">
+    <div class="panel panel-primary">
+        <div class="panel-heading">新增流派</div>
+        <div class="panel-body">
+            <div>
+                名称:<input type="text" name="SchoolDesc" required autofocus/>
+            </div>
+            <div>
+                <input type="submit" class="btn btn-primary" value="提交"/>
+                <input type="button" class="btn btn-sm btn-warning" onclick="location.href='Admin_home/index'" value="取消" />
+            </div>
+        </div>
+    </div>
+</form>

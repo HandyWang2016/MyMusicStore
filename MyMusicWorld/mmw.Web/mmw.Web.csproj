@@ -193,6 +193,7 @@
     <Content Include="Views\Upload\Index.cshtml" />
     <Content Include="Views\Admin_Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout_admin.cshtml" />
+    <Content Include="Views\School\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -204,7 +205,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Songs\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\School\" />
     <Folder Include="Views\Songs\" />
   </ItemGroup>
   <ItemGroup>
