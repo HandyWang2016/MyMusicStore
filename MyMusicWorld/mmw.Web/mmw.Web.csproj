@@ -96,6 +96,7 @@
     <Content Include="Global.asax" />
     <Content Include="Images\2014092917281421.jpg" />
     <Content Include="Images\2014092917281677.jpg" />
+    <Content Include="Images\2017010.jpg" />
     <Content Include="Images\headBanner_old.jpg" />
     <Content Include="Images\headBanner.jpg" />
     <Content Include="Plugins\ajaxfileupload.js" />
