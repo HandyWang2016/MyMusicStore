@@ -100,6 +100,32 @@
     <Content Include="Images\headBanner_old.jpg" />
     <Content Include="Images\headBanner.jpg" />
     <Content Include="Plugins\ajaxfileupload.js" />
+    <Content Include="Plugins\jplayer\jquery.jplayer.min.js" />
+    <Content Include="Plugins\jplayer\jquery.min.js" />
+    <Content Include="Plugins\jplayer\skin\blue.monday\jplayer.blue.monday.css" />
+    <Content Include="Plugins\jplayer\skin\blue.monday\jplayer.blue.monday.jpg" />
+    <Content Include="Plugins\jplayer\skin\blue.monday\jplayer.blue.monday.seeking.gif" />
+    <Content Include="Plugins\jplayer\skin\blue.monday\jplayer.blue.monday.video.play.png" />
+    <Content Include="Plugins\jplayer\skin\blue.monday\mustache\jplayer.blue.monday.audio.playlist.html" />
+    <Content Include="Plugins\jplayer\skin\blue.monday\mustache\jplayer.blue.monday.audio.single.html" />
+    <Content Include="Plugins\jplayer\skin\blue.monday\mustache\jplayer.blue.monday.audio.stream.html" />
+    <Content Include="Plugins\jplayer\skin\blue.monday\mustache\jplayer.blue.monday.video.playlist.html" />
+    <Content Include="Plugins\jplayer\skin\blue.monday\mustache\jplayer.blue.monday.video.single.html" />
+    <Content Include="Plugins\jplayer\skin\circle.player\bgr.jpg" />
+    <Content Include="Plugins\jplayer\skin\circle.player\buffer.png" />
+    <Content Include="Plugins\jplayer\skin\circle.player\circle.player.css" />
+    <Content Include="Plugins\jplayer\skin\circle.player\controls.jpg" />
+    <Content Include="Plugins\jplayer\skin\circle.player\progress.png" />
+    <Content Include="Plugins\jplayer\skin\circle.player\progress_sprite.jpg" />
+    <Content Include="Plugins\jplayer\skin\pink.flag\jplayer.pink.flag.css" />
+    <Content Include="Plugins\jplayer\skin\pink.flag\jplayer.pink.flag.jpg" />
+    <Content Include="Plugins\jplayer\skin\pink.flag\jplayer.pink.flag.seeking.gif" />
+    <Content Include="Plugins\jplayer\skin\pink.flag\jplayer.pink.flag.video.play.png" />
+    <Content Include="Plugins\jplayer\skin\pink.flag\mustache\jplayer.pink.flag.audio.playlist.html" />
+    <Content Include="Plugins\jplayer\skin\pink.flag\mustache\jplayer.pink.flag.audio.single.html" />
+    <Content Include="Plugins\jplayer\skin\pink.flag\mustache\jplayer.pink.flag.audio.stream.html" />
+    <Content Include="Plugins\jplayer\skin\pink.flag\mustache\jplayer.pink.flag.video.playlist.html" />
+    <Content Include="Plugins\jplayer\skin\pink.flag\mustache\jplayer.pink.flag.video.single.html" />
     <Content Include="Plugins\musicplayer_1.0.1\demo\css\demo.css" />
     <Content Include="Plugins\musicplayer_1.0.1\demo\images\bg.jpg" />
     <Content Include="Plugins\musicplayer_1.0.1\demo\images\title.png" />
@@ -195,6 +221,7 @@
     <Content Include="Views\Admin_Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout_admin.cshtml" />
     <Content Include="Views\School\Index.cshtml" />
+    <Content Include="Views\Home\Index_new.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

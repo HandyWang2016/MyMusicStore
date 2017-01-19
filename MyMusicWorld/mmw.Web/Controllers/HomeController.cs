@@ -11,7 +11,7 @@ namespace mmw.Web.Controllers
     public class HomeController : BaseController
     {
         //获取数据操作对象
-        MusicDbContext context = CurContext();
+        readonly MusicDbContext context = CurContext();
 
         // GET: Home
         public ActionResult Index()
@@ -27,6 +27,15 @@ namespace mmw.Web.Controllers
 
             songStr.Remove(songStr.Length - 1, 1).Insert(0, '[').Append(']');
             ViewBag.songs = songStr.ToString();
+            return View();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Index_new()
+        {
             return View();
         }
     }

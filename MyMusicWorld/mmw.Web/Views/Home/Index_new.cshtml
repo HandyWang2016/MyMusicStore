@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Index_new";
+}
+<link href="~/Plugins/jplayer/skin/blue.monday/jplayer.blue.monday.css" rel="stylesheet" />
+
+
+<script type="text/javascript">
+    $(document).ready(function () { 
+        /*
+		根据浏览器兼容性测试结果，ie9+, firefox, chrome,opera,safari能支持m4a 和ogg 中的至少一种。
+		setMedia 设置了两个资源，那么优先播放哪个呢？会考虑两个因素
+		首先播放supplied设置的第一个格式，如果当前浏览器支持，那么会播放小城大事，如果不支持那么会播放第二个supplied 的格式对应的资源也就是test1.m4a
+		*/
+        $("#jquery_jplayer_1").jPlayer({
+            ready: function (event) {
+                $(this).jPlayer("setMedia", {
+                    title: "test1或者小城大事",
+                    m4a: "../../audio/m4a/test1.m4a",
+                    oga: "../../audio/ogg/小城大事.ogg"
+                });
+            },
+            swfPath: "../../dist/jplayer", // jquery.jplayer.swf 文件存放的位置
+            supplied: "oga,m4a",
+            wmode: "window", // 设置Flash 的wmode，具体设置参见文档说明，写window 就好了
+            useStateClassSkin: true, // 默认情况下，播放和静音状态下的dom 元素会添加class jp-state-playing, jp-state-muted 这些状态会对应一些皮肤，是否使用这些状态对应的皮肤。
+            autoBlur: false, // 点击之后自动失去焦点
+            smoothPlayBar: true, // 平滑过渡
+            keyEnabled: true, // 是否允许键盘控制播放
+            remainingDuration: true, // 是否显示剩余播放时间,如果为false 那么duration 那个dom显示的是【3:07】,如果为true 显示的为【-3:07】
+            toggleDuration: true //允许点击剩余时间的dom 时切换 剩余播放时间的方式，比如从【3:07】点击变成【-3：07】如果设置为false ,那么点击无效，只能显示remainingDuration 设置的方式。
+        });
+    });
+</script>
+
+<h2>Index_new</h2>
+
