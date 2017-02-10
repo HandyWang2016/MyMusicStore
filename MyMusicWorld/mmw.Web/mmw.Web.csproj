@@ -100,7 +100,10 @@
     <Content Include="Images\headBanner_old.jpg" />
     <Content Include="Images\headBanner.jpg" />
     <Content Include="Plugins\ajaxfileupload.js" />
+    <Content Include="Plugins\jplayer\jplayer.playlist.min.js" />
+    <Content Include="Plugins\jplayer\jquery.jplayer.inspector.min.js" />
     <Content Include="Plugins\jplayer\jquery.jplayer.min.js" />
+    <Content Include="Plugins\jplayer\jquery.jplayer.swf" />
     <Content Include="Plugins\jplayer\jquery.min.js" />
     <Content Include="Plugins\jplayer\skin\blue.monday\jplayer.blue.monday.css" />
     <Content Include="Plugins\jplayer\skin\blue.monday\jplayer.blue.monday.jpg" />
@@ -175,6 +178,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="SongRepository\1.mp3" />
+    <Content Include="Songs\山沟沟.mp3" />
+    <Content Include="Songs\空城-金志文.mp3" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -222,6 +227,7 @@
     <Content Include="Views\Shared\_Layout_admin.cshtml" />
     <Content Include="Views\School\Index.cshtml" />
     <Content Include="Views\Home\Index_new.cshtml" />
+    <Content Include="Views\Home\Index_List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -231,7 +237,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Songs\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Songs\" />
   </ItemGroup>

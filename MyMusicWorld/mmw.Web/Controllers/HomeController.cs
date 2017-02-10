@@ -31,11 +31,31 @@ namespace mmw.Web.Controllers
         }
 
         /// <summary>
-        /// 
+        /// 音乐播放-single
         /// </summary>
         /// <returns></returns>
         public ActionResult Index_new()
         {
+            return View();
+        }
+
+        /// <summary>
+        /// 音乐播放-list
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Index_List()
+        {
+            var songs = context.Songs.ToList();
+            StringBuilder sonBuilder = new StringBuilder();
+            foreach (var item in songs)
+            {
+                sonBuilder.Append("{");
+                sonBuilder.AppendFormat("\"mp3\":\"{0}\",\"title\":\"{1}\",\"artist\":\"{2}\",\"free\":\"true\"", item.Path, item.SongTitle, item.Singer.SingerName);
+                sonBuilder.Append("},");
+            }
+
+            sonBuilder.Remove(sonBuilder.Length - 1, 1).Insert(0, '[').Append(']');
+            ViewBag.songs = sonBuilder.ToString();
             return View();
         }
     }
