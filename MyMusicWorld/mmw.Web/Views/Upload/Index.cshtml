@@ -1,8 +1,10 @@
-﻿
+﻿@model IEnumerable<mmw.Web.Models.Song>
+
 @{
     ViewBag.Title = "Index";
     Layout = "/Views/Shared/_Layout_admin.cshtml";
 }
+
 <script src="~/Plugins/ajaxfileupload.js"></script>
 <script>
     $(function () {
@@ -28,6 +30,7 @@
                         alert(data.error);
                     } else {
                         $("input[name=Path]").val(data.filePath);
+                        $("#lblFilepath").html(data.filePath);
                         alert(data.msg);
                     }
                 },
@@ -38,8 +41,29 @@
             }
             );
     }
+
+    function checkFile() {
+        if ($("#lblFilepath").html() == "") {
+            alert('请先上传文件');
+            return false;
+        }
+        return true;
+    }
 </script>
 <div>
+    <table class="table table-striped">
+        <thead><tr><th>名称</th><th>歌手</th><th>流派</th><th>分享人</th></tr></thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SongTitle</td>
+                <td>@item.Singer.SingerName</td>
+                <td>@item.School.SchoolDesc</td>
+                <td>@item.Fancier.FancierName</td>
+            </tr>
+        }
+    </table>
+
     <form method="post" action="Upload/Add">
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -49,7 +73,10 @@
                 <table class="table table-striped">
                     <tr><td>歌曲名称:</td><td><input type="text" name="SongTitle" required autofocus /></td></tr>
                     <tr><td>选择文件:</td><td><input type="file" id="file1" name="file1" /></td></tr>
-                    <tr><td colspan="2"><input  class="btn btn-success" id="btnUpload" type="button" value="上传" /></td></tr>
+                    <tr>
+                        <td><input class="btn btn-success" id="btnUpload" type="button" value="上传" /></td>
+                        <td><label id="lblFilepath"></label></td>
+                    </tr>
                     <tr>
                         <td>流派:</td>
                         <td>
@@ -85,8 +112,8 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <input type="submit" class="btn btn-primary" value="添加" />
-                            <input type="button" class="btn btn-sm btn-warning" onclick="location.href='Admin_home/index'" value="取消" />
+                            <input type="submit" class="btn btn-primary" onclick="return checkFile();" value="添加" />
+                            <input type="button" class="btn btn-sm btn-warning" onclick="location.href = 'Admin_home/index'" value="取消" />
                         </td>
                     </tr>
                 </table>

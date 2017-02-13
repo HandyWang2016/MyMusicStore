@@ -14,6 +14,7 @@ namespace mmw.Web.Controllers.Admin
         // GET: Upload
         public ActionResult Index()
         {
+            var songs = context.Songs.ToList();
             var schools = context.Schools.ToList();
             var singers = context.Singers.ToList();
             var fanciers = context.Fanciers.ToList();
@@ -21,8 +22,8 @@ namespace mmw.Web.Controllers.Admin
             ViewBag.schools = schools;
             ViewBag.singers = singers;
             ViewBag.fanciers = fanciers;
-            return View();
-        }
+            return View(songs);
+        } 
 
         [HttpPost]
         public ActionResult Add(Song song)
