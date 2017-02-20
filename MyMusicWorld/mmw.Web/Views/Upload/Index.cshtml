@@ -10,36 +10,35 @@
     $(function () {
         $("#btnUpload").click(function () {
             if ($("#file1").val() != "") {
-                ajaxFileupload();
+                uploadFile();
             } else {
                 alert("请选择文件");
             }
         });
     });
 
-    function ajaxFileupload() {
-        $.ajaxFileUpload(
+    function uploadFile() {
+        $.ajaxFileUpload({
+            url: "/Upload/Upload",
+            type: "post",
+            secureuri: false,
+            fileElementId: "file1",
+            dataType: "json",
+            success: function (data, status)  //服务器成功响应处理函数
             {
-                url: "Upload/Upload",
-                secureuri: false,
-                fileElementId: "file1",
-                dataType: "json",
-                success: function (data, status)  //服务器成功响应处理函数
-                {
-                    if (typeof (data.error) != 'undefined' && data.error != '') {
-                        alert(data.error);
-                    } else {
-                        $("input[name=Path]").val(data.filePath);
-                        $("#lblFilepath").html(data.filePath);
-                        alert(data.msg);
-                    }
-                },
-                error: function (data, status, e)//服务器响应失败处理函数
-                {
-                    alert(e);
+                if (typeof (data.error) != 'undefined' && data.error != '') {
+                    alert(data.error);
+                } else {
+                    $("input[name=Path]").val(data.filePath);
+                    $("#lblFilepath").html(data.filePath);
+                    alert(data.msg);
                 }
+            },
+            error: function (data, status, e)//服务器响应失败处理函数
+            {
+                alert(e);
             }
-            );
+        });
     }
 
     function checkFile() {
@@ -52,7 +51,7 @@
 </script>
 <div>
     <table class="table table-striped">
-        <thead><tr><th>名称</th><th>歌手</th><th>流派</th><th>分享人</th></tr></thead>
+        <thead><tr><th>名称</th><th>歌手</th><th>流派</th><th>分享人</th><th>操作</th></tr></thead>
         @foreach (var item in Model)
         {
             <tr>
@@ -60,6 +59,13 @@
                 <td>@item.Singer.SingerName</td>
                 <td>@item.School.SchoolDesc</td>
                 <td>@item.Fancier.FancierName</td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", "Upload", new
+               {
+                   id = item.SongId
+
+               }, new { @class = "btn btn-xs btn-danger" })
+                </td>
             </tr>
         }
     </table>

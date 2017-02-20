@@ -34,6 +34,17 @@ namespace mmw.Web.Controllers.Admin
             return RedirectToAction("Index");
         }
 
+        public ActionResult Delete(int id)
+        {
+            var songMod = context.Songs.Find(id);
+            if (songMod!=null)
+            {
+                context.Entry(songMod).State = System.Data.Entity.EntityState.Deleted;
+                context.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
         /// <summary>
         /// 文件上传
         /// </summary>
