@@ -50,7 +50,8 @@ namespace mmw.Web.Controllers
             foreach (var item in songs)
             {
                 sonBuilder.Append("{");
-                sonBuilder.AppendFormat("\"mp3\":\"{0}\",\"title\":\"{1}\",\"artist\":\"{2}\",\"free\":\"true\"", item.Path, item.SongTitle, item.Singer.SingerName);
+                sonBuilder.AppendFormat("\"mp3\":\"{0}\",\"title\":\"{1}\",\"artist\":\"{2}\",\"free\":\"true\",\"SongId\":\"{3}\",\"Path\":\"{4}\"",
+                    item.Path, item.SongTitle, item.Singer.SingerName, item.SongId, item.Path);
                 sonBuilder.Append("},");
             }
 
