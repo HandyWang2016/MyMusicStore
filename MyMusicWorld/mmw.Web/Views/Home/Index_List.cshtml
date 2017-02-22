@@ -17,29 +17,50 @@
 <script type="text/javascript">
 
     var playList;
-    $(document).ready(function () {
-        var myPlaylist = '@Html.Raw(ViewBag.songs)';
-        var objList = JSON.parse(myPlaylist);
-        playList= new jPlayerPlaylist({
+    $(document)
+        .ready(function () {
+            var myPlaylist = '@Html.Raw(ViewBag.songs)';
+            var objList = JSON.parse(myPlaylist);
+            playList = new jPlayerPlaylist({
                 jPlayer: "#jquery_jplayer_1",
                 cssSelectorAncestor: "#jp_container_1"
             },
-            objList
-            , {
-                playlistOptions: {
-                    enableRemoveControls: true//显示删除按钮
-                },
-                swfPath: "/Plugins/jplayer",
-                supplied: "mp3,webmv, ogv, m4v",
-                useStateClassSkin: true,
-                autoBlur: false,
-                smoothPlayBar: true,
-                keyEnabled: true
-            }
-        );
-        
-        $("#jplayer_inspector_1").jPlayerInspector({ jPlayer: $("#jquery_jplayer_1") });
-    });
+                objList
+                , {
+                    playlistOptions: {
+                        autoPlay: true,
+                        enableRemoveControls: true//显示删除按钮
+                    },
+                    size: {
+                        width: "300px", height: "260px"
+                    },
+                    swfPath: "/Plugins/jplayer",
+                    supplied: "mp3,webmv, ogv, m4v",
+                    useStateClassSkin: true,
+                    autoBlur: false,
+                    smoothPlayBar: true,
+                    keyEnabled: true
+                }
+            );
+
+            $("#jplayer_inspector_1").jPlayerInspector({ jPlayer: $("#jquery_jplayer_1") });
+        });
+
+    function addMedia() {
+        playList.add({
+            title: "Your Face",
+            artist: "The Stark Palace",
+            mp3: "http://www.jplayer.org/audio/mp3/TSP-05-Your_face.mp3",
+            oga: "http://www.jplayer.org/audio/ogg/TSP-05-Your_face.ogg",
+            poster: "http://www.jplayer.org/audio/poster/The_Stark_Palace_640x360.png"
+
+        });
+    }
+
+    function removeMedia() {
+        playList.remove(0);
+    }
+
 
     //歌曲下载
     function DownCurrentSong() {
@@ -48,7 +69,7 @@
         jQuery.each(playListAll, function (index, obj) {
             if (index == current) {
                 $("#downLink").attr("href", obj.Path);
-            } 
+            }
         });
     }
 </script>
@@ -56,6 +77,10 @@
 <table style="background-color:silver;width:100%">
     <tr>
         <td>
+            <a href="#" onclick="addMedia();">添加</a>
+            <a href="#" onclick="removeMedia();">删除</a>
+            <a href="/admin">后台</a>
+
             <div id="jp_container_1" class="jp-video jp-video-270p" role="application" aria-label="media player" style="margin-bottom: 0px;">
                 <div class="jp-type-playlist">
                     <div id="jquery_jplayer_1" class="jp-jplayer"></div>

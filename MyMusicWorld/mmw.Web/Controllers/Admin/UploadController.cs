@@ -23,7 +23,7 @@ namespace mmw.Web.Controllers.Admin
             ViewBag.singers = singers;
             ViewBag.fanciers = fanciers;
             return View(songs);
-        } 
+        }
 
         [HttpPost]
         public ActionResult Add(Song song)
@@ -37,7 +37,7 @@ namespace mmw.Web.Controllers.Admin
         public ActionResult Delete(int id)
         {
             var songMod = context.Songs.Find(id);
-            if (songMod!=null)
+            if (songMod != null)
             {
                 context.Entry(songMod).State = System.Data.Entity.EntityState.Deleted;
                 context.SaveChanges();
@@ -47,15 +47,16 @@ namespace mmw.Web.Controllers.Admin
 
         /// <summary>
         /// 文件上传
+        /// flag:0-歌曲 1-图片
         /// </summary>
         /// <returns></returns>
-        public ActionResult Upload()
+        public ActionResult Upload(int flag)
         {
             HttpFileCollection files = System.Web.HttpContext.Current.Request.Files;
             string filePath = string.Empty;
             if (files.Count > 0)
             {
-                filePath = "/Songs/" + files[0].FileName;
+                filePath = flag == 0 ? "/Songs/" + files[0].FileName : "/Images/" + files[0].FileName;
                 string physicalPath = Server.MapPath(filePath);
                 files[0].SaveAs(physicalPath);
             }

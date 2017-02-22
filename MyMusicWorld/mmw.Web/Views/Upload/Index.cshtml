@@ -5,49 +5,18 @@
     Layout = "/Views/Shared/_Layout_admin.cshtml";
 }
 
-<script src="~/Plugins/ajaxfileupload.js"></script>
+<script src="/Plugins/ajaxfileupload.js"></script>
+<script src="/Scripts/clientJS/common.js"></script>
 <script>
     $(function () {
         $("#btnUpload").click(function () {
             if ($("#file1").val() != "") {
-                uploadFile();
+                uploadFile(0);
             } else {
                 alert("请选择文件");
             }
         });
     });
-
-    function uploadFile() {
-        $.ajaxFileUpload({
-            url: "/Upload/Upload",
-            type: "post",
-            secureuri: false,
-            fileElementId: "file1",
-            dataType: "json",
-            success: function (data, status)  //服务器成功响应处理函数
-            {
-                if (typeof (data.error) != 'undefined' && data.error != '') {
-                    alert(data.error);
-                } else {
-                    $("input[name=Path]").val(data.filePath);
-                    $("#lblFilepath").html(data.filePath);
-                    alert(data.msg);
-                }
-            },
-            error: function (data, status, e)//服务器响应失败处理函数
-            {
-                alert(e);
-            }
-        });
-    }
-
-    function checkFile() {
-        if ($("#lblFilepath").html() == "") {
-            alert('请先上传文件');
-            return false;
-        }
-        return true;
-    }
 </script>
 <div>
     <table class="table table-striped">
