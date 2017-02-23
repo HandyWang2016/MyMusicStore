@@ -46,6 +46,16 @@ namespace mmw.Web.Controllers.Admin
         }
 
         /// <summary>
+        /// 修改
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Update()
+        {
+            
+            return RedirectToAction("Index");
+        }
+
+        /// <summary>
         /// 文件上传
         /// flag:0-歌曲 1-图片
         /// </summary>

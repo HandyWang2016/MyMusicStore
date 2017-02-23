@@ -57,7 +57,9 @@ namespace mmw.Web.Controllers
 
             sonBuilder.Remove(sonBuilder.Length - 1, 1).Insert(0, '[').Append(']');
             ViewBag.songs = sonBuilder.ToString();
-            return View();
+
+            var singers = context.Singers.Where(item => !string.IsNullOrEmpty(item.Photo)).ToList();
+            return View(singers);
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿
+@model IEnumerable<mmw.Web.Models.Singer>
+
 @{
     ViewBag.Title = "Index_List";
 }
@@ -8,43 +10,60 @@
 <meta name="keywords" content="jquery,jplyer,list,mp3,ogv" />
 <meta name="company" content="handyorg" />
 <link href="/Plugins/jplayer/skin/blue.monday/jplayer.blue.monday.css" rel="stylesheet" />
+<link href="/Scripts/unslider/css/unslider.css" rel="stylesheet" />
+<link href="/Scripts/unslider/css/unslider-dots.css" rel="stylesheet" />
 @*<link href="/Plugins/jplayer/skin/pink.flag/jplayer.pink.flag.css" rel="stylesheet" type="text/css" />*@
 <script src="/Plugins/jplayer/jquery.min.js"></script>
 <script src="/Plugins/jplayer/jquery.jplayer.min.js"></script>
 <script src="/Plugins/jplayer/jplayer.playlist.min.js"></script>
 <script src="/Plugins/jplayer/jquery.jplayer.inspector.min.js"></script>
+<script src="~/Scripts/unslider/js/unslider.js"></script>
+<script src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
 
 <script type="text/javascript">
 
     var playList;
-    $(document)
-        .ready(function () {
-            var myPlaylist = '@Html.Raw(ViewBag.songs)';
-            var objList = JSON.parse(myPlaylist);
-            playList = new jPlayerPlaylist({
-                jPlayer: "#jquery_jplayer_1",
-                cssSelectorAncestor: "#jp_container_1"
-            },
-                objList
-                , {
-                    playlistOptions: {
-                        autoPlay: true,
-                        enableRemoveControls: true//显示删除按钮
-                    },
-                    size: {
-                        width: "300px", height: "260px"
-                    },
-                    swfPath: "/Plugins/jplayer",
-                    supplied: "mp3,webmv, ogv, m4v",
-                    useStateClassSkin: true,
-                    autoBlur: false,
-                    smoothPlayBar: true,
-                    keyEnabled: true
-                }
-            );
+    $(document).ready(function () {
+        //设置轮播图
+        $('.banner')
+            .unslider({
+                arrows: false,
+                speed: 2000,
+                delay: 4000,
+                complete: function () { },
+                keys: true,
+                dots: false,
+                autoplay: true,
+                animation: 'vertical',
+                infinite: true
+            });
+        //设置播放列表
+        var myPlaylist = '@Html.Raw(ViewBag.songs)';
+        var objList = JSON.parse(myPlaylist);
+        playList = new jPlayerPlaylist({
+            jPlayer: "#jquery_jplayer_1",
+            cssSelectorAncestor: "#jp_container_1"
+        },
+            objList
+            , {
+                playlistOptions: {
+                    autoPlay: false,
+                    enableRemoveControls: true//显示删除按钮
+                },
+                size: {
+                    width: "300px", height: "260px"
+                },
+                swfPath: "/Plugins/jplayer",
+                supplied: "mp3,webmv, ogv, m4v",
+                useStateClassSkin: true,
+                autoBlur: false,
+                smoothPlayBar: true,
+                keyEnabled: true
+            }
+        );
 
-            $("#jplayer_inspector_1").jPlayerInspector({ jPlayer: $("#jquery_jplayer_1") });
-        });
+        $("#jplayer_inspector_1").jPlayerInspector({ jPlayer: $("#jquery_jplayer_1") });
+    });
 
     function addMedia() {
         playList.add({
@@ -74,69 +93,103 @@
     }
 </script>
 
-<table style="background-color:silver;width:100%">
-    <tr>
-        <td>
-            <a href="#" onclick="addMedia();">添加</a>
-            <a href="#" onclick="removeMedia();">删除</a>
-            <a href="/admin">后台</a>
+<div style="padding-left:100px; padding-right: 100px;background-color:cornsilk">
+    <table style="width: 100%; background-color: cornsilk;">
+        <tr>
+            <td>
+                <a href="#" onclick="addMedia();">添加</a>
+                <a href="#" onclick="removeMedia();">删除</a>
+                <a href="/admin">后台</a>
 
-            <div id="jp_container_1" class="jp-video jp-video-270p" role="application" aria-label="media player" style="margin-bottom: 0px;">
-                <div class="jp-type-playlist">
-                    <div id="jquery_jplayer_1" class="jp-jplayer"></div>
-                    <div class="jp-gui">
-                        <div class="jp-video-play">
-                            <button class="jp-video-play-icon" role="button" tabindex="0">play</button>
-                        </div>
-                        <div class="jp-interface">
-                            <div class="jp-progress">
-                                <div class="jp-seek-bar">
-                                    <div class="jp-play-bar"></div>
-                                </div>
+                <div id="jp_container_1" class="jp-video jp-video-270p" role="application" aria-label="media player" style="margin-bottom: 0px;">
+                    <div class="jp-type-playlist">
+                        <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+                        <div class="jp-gui">
+                            <div class="jp-video-play">
+                                <button class="jp-video-play-icon" role="button" tabindex="0">play</button>
                             </div>
-                            <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
-                            <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
-                            <div class="jp-details">
-                                <div class="jp-title" aria-label="title">&nbsp;</div>
-                            </div>
-                            <div class="jp-controls-holder">
-                                <div class="jp-volume-controls">
-                                    <button class="jp-mute" role="button" tabindex="0">mute</button>
-                                    <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
-                                    <div class="jp-volume-bar">
-                                        <div class="jp-volume-bar-value"></div>
+                            <div class="jp-interface">
+                                <div class="jp-progress">
+                                    <div class="jp-seek-bar">
+                                        <div class="jp-play-bar"></div>
                                     </div>
                                 </div>
-                                <div class="jp-controls">
-                                    <button class="jp-previous" role="button" tabindex="0">previous</button>
-                                    <button class="jp-play" role="button" tabindex="0">play</button>
-                                    <button class="jp-stop" role="button" tabindex="0">stop</button>
-                                    <button class="jp-next" role="button" tabindex="0">next</button>
+                                <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+                                <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+                                <div class="jp-details">
+                                    <div class="jp-title" aria-label="title">&nbsp;</div>
                                 </div>
-                                <div class="jp-toggles">
-                                    <button class="jp-repeat" role="button" tabindex="0">repeat</button>
-                                    <button class="jp-shuffle" role="button" tabindex="0">shuffle</button>
-                                    @*<button class="jp-full-screen" role="button" tabindex="0">full screen</button>*@
-                                    &nbsp;<a id="downLink" onclick="DownCurrentSong();" download><span class="glyphicon glyphicon-download"></span></a>
+                                <div class="jp-controls-holder">
+                                    <div class="jp-volume-controls">
+                                        <button class="jp-mute" role="button" tabindex="0">mute</button>
+                                        <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+                                        <div class="jp-volume-bar">
+                                            <div class="jp-volume-bar-value"></div>
+                                        </div>
+                                    </div>
+                                    <div class="jp-controls">
+                                        <button class="jp-previous" role="button" tabindex="0">previous</button>
+                                        <button class="jp-play" role="button" tabindex="0">play</button>
+                                        <button class="jp-stop" role="button" tabindex="0">stop</button>
+                                        <button class="jp-next" role="button" tabindex="0">next</button>
+                                    </div>
+                                    <div class="jp-toggles">
+                                        <button class="jp-repeat" role="button" tabindex="0">repeat</button>
+                                        <button class="jp-shuffle" role="button" tabindex="0">shuffle</button>
+                                        @*<button class="jp-full-screen" role="button" tabindex="0">full screen</button>*@
+                                        &nbsp;<a id="downLink" onclick="DownCurrentSong();" download><span class="glyphicon glyphicon-download"></span></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="jp-playlist">
-                        <ul>
-                            <!-- The method Playlist.displayPlaylist() uses this unordered list -->
-                            <li></li>
-                        </ul>
-                    </div>
-                    <div class="jp-no-solution">
-                        <span>Update Required</span>
-                        To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                        <div class="jp-playlist">
+                            <ul>
+                                <!-- The method Playlist.displayPlaylist() uses this unordered list -->
+                                <li></li>
+                            </ul>
+                        </div>
+                        <div class="jp-no-solution">
+                            <span>Update Required</span>
+                            To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                        </div>
                     </div>
                 </div>
-            </div>
-        </td>
-        <td>
-            <div>hello</div>
-        </td>
-    </tr>
-</table>
+            </td>
+            <td style="width:30%">
+                <div class="banner">
+                    <ul>
+                        @foreach (var item in Model)
+                        {
+                            <li>
+                                <img style="width:400px;height:300px;" src="@item.Photo" />
+                                
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div>
+                    <table class="table table-condensed table-hover">
+                        <thead>
+                        <tr>
+                            <th>歌手</th>
+                            <th>区域</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.SingerName</td>
+                                <td>@item.Area.AreaName</td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+            <td style="width:30%">
+                
+            </td>
+        </tr>
+    </table>
+</div>

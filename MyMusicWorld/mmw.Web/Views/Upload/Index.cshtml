@@ -20,7 +20,7 @@
 </script>
 <div>
     <table class="table table-striped">
-        <thead><tr><th>名称</th><th>歌手</th><th>流派</th><th>分享人</th><th>操作</th></tr></thead>
+        <thead><tr><th>名称</th><th>歌手</th><th>流派</th><th>分享人</th><th colspan="2">操作</th></tr></thead>
         @foreach (var item in Model)
         {
             <tr>
@@ -28,7 +28,12 @@
                 <td>@item.Singer.SingerName</td>
                 <td>@item.School.SchoolDesc</td>
                 <td>@item.Fancier.FancierName</td>
-                <td>
+                <td colspan="2">
+                    @Html.ActionLink("Update", "Update", "Upload", new
+               {
+                   id = item.SongId
+
+               }, new { @class = "btn btn-xs btn-warning" })
                     @Html.ActionLink("Delete", "Delete", "Upload", new
                {
                    id = item.SongId

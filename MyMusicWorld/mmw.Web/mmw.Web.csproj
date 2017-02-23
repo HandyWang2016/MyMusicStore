@@ -94,6 +94,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="HtmlDemo.html" />
+    <Content Include="Images\1.png" />
+    <Content Include="Images\2.jpg" />
     <Content Include="Images\2014092917281421.jpg" />
     <Content Include="Images\2014092917281677.jpg" />
     <Content Include="Images\2017010.jpg" />
@@ -172,11 +175,15 @@
     <Content Include="Plugins\musicplayer_1.0.1\demo\fonts\Lato-Italic.ttf" />
     <Content Include="Plugins\musicplayer_1.0.1\demo\fonts\Lato-Regular.ttf" />
     <Content Include="Plugins\musicplayer_1.0.1\demo\mix\1.ogg" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\clientJS\common.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\unslider\css\unslider-dots.css" />
+    <Content Include="Scripts\unslider\css\unslider.css" />
+    <Content Include="Scripts\unslider\js\jquery.event.move.js" />
+    <Content Include="Scripts\unslider\js\jquery.event.swipe.js" />
+    <Content Include="Scripts\unslider\js\unslider-min.js" />
+    <Content Include="Scripts\unslider\js\unslider.js" />
     <Content Include="SongRepository\1.mp3" />
     <Content Include="Songs\山沟沟.mp3" />
     <Content Include="Songs\空城-金志文.mp3" />
@@ -217,7 +224,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Area\Index.cshtml" />
     <Content Include="Views\Grade\Index.cshtml" />
     <Content Include="Views\Singer\Index.cshtml" />

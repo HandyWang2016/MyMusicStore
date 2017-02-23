@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="Scripts/unslider/css/unslider.css" rel="stylesheet" />
+    <link href="Scripts/unslider/css/unslider-dots.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="Scripts/unslider/js/unslider.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.banner')
+                .unslider({
+                    speed: 2000,
+                    delay: 4000,
+                    complete: function() {},
+                    keys: true,
+                    dots: true,
+                    autoplay: true
+                });
+        })
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <ul>
+            <li style="background-image:url(Images/1.png)">aa</li>
+            <li style="background-image:url(Images/2.jpg">bb</li>
+        </ul>
+    </div>
+</body>
+</html>
