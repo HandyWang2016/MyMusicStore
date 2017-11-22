@@ -23,13 +23,13 @@ namespace mmw.Web
             routes.MapRoute(
                 name: "Admin",
                 url: "Admin/{controller}/{action}/{id}",
-                defaults: new { controller = "Area", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Admin_home", action = "Index", id = UrlParameter.Optional }
                 );
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index_List", id = UrlParameter.Optional }
             );
         }
     }

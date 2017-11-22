@@ -5,6 +5,20 @@
     ViewBag.Title = "Index";
 }
 
+<script src="/Plugins/ajaxfileupload.js"></script>
+<script src="/Scripts/clientJS/common.js"></script>
+<script>
+    $(function () {
+        $("#btnUpload").click(function () {
+            if ($("#file1").val() != "") {
+                uploadFile(1);
+            } else {
+                alert("请选择文件");
+            }
+        });
+    });
+</script>
+
 <table class="table table-striped">
     <thead>
         <tr><th>歌手姓名</th><th>性别</th><th>区域</th><th>操作</th></tr>
@@ -49,11 +63,22 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><input class="btn btn-primary" type="submit" value="添加" />
-                <input type="button" class="btn btn-sm btn-warning" onclick="location.href='Admin_home/index'" value="取消" /></td>
+                <td>靓照:</td>
+                <td>
+                    <input type="file" id="file1" name="file1"/>
+                </td>
+            </tr>
+            <tr>
+                <td><input class="btn btn-success" id="btnUpload" type="button" value="上传" /></td>
+                <td><img id="imgPhoto"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input class="btn btn-primary" type="submit" onclick="return checkFile();" value="添加" />
+                    <input type="button" class="btn btn-sm btn-warning" onclick="location.href='Admin_home/index'" value="取消" /></td>
             </tr>
 
         </table>
+        <input type="hidden" name="Photo" />
     </div>
 </form>
 

@@ -14,6 +14,7 @@ namespace mmw.Web.Controllers.Admin
         // GET: Upload
         public ActionResult Index()
         {
+            var songs = context.Songs.ToList();
             var schools = context.Schools.ToList();
             var singers = context.Singers.ToList();
             var fanciers = context.Fanciers.ToList();
@@ -21,7 +22,7 @@ namespace mmw.Web.Controllers.Admin
             ViewBag.schools = schools;
             ViewBag.singers = singers;
             ViewBag.fanciers = fanciers;
-            return View();
+            return View(songs);
         }
 
         [HttpPost]
@@ -33,17 +34,39 @@ namespace mmw.Web.Controllers.Admin
             return RedirectToAction("Index");
         }
 
+        public ActionResult Delete(int id)
+        {
+            var songMod = context.Songs.Find(id);
+            if (songMod != null)
+            {
+                context.Entry(songMod).State = System.Data.Entity.EntityState.Deleted;
+                context.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
         /// <summary>
-        /// 文件上传
+        /// 修改
         /// </summary>
         /// <returns></returns>
-        public ActionResult Upload()
+        public ActionResult Update()
+        {
+            
+            return RedirectToAction("Index");
+        }
+
+        /// <summary>
+        /// 文件上传
+        /// flag:0-歌曲 1-图片
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Upload(int flag)
         {
             HttpFileCollection files = System.Web.HttpContext.Current.Request.Files;
             string filePath = string.Empty;
             if (files.Count > 0)
             {
-                filePath = "/Songs/" + files[0].FileName;
+                filePath = flag == 0 ? "/Songs/" + files[0].FileName : "/Images/" + files[0].FileName;
                 string physicalPath = Server.MapPath(filePath);
                 files[0].SaveAs(physicalPath);
             }

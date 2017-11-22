@@ -17,6 +17,10 @@ namespace mmw.Web.Models
         public int SingerId { get; set; }
         public string SingerName { get; set; }
         /// <summary>
+        /// 照片
+        /// </summary>
+        public string Photo { get; set; }
+        /// <summary>
         /// 1男 2女
         /// </summary>
         public int Sex { get; set; }

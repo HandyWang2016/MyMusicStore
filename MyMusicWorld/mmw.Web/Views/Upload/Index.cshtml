@@ -1,45 +1,49 @@
-﻿
+﻿@model IEnumerable<mmw.Web.Models.Song>
+
 @{
     ViewBag.Title = "Index";
     Layout = "/Views/Shared/_Layout_admin.cshtml";
 }
-<script src="~/Plugins/ajaxfileupload.js"></script>
+
+<script src="/Plugins/ajaxfileupload.js"></script>
+<script src="/Scripts/clientJS/common.js"></script>
 <script>
     $(function () {
         $("#btnUpload").click(function () {
             if ($("#file1").val() != "") {
-                ajaxFileupload();
+                uploadFile(0);
             } else {
                 alert("请选择文件");
             }
         });
     });
-
-    function ajaxFileupload() {
-        $.ajaxFileUpload(
-            {
-                url: "Upload/Upload",
-                secureuri: false,
-                fileElementId: "file1",
-                dataType: "json",
-                success: function (data, status)  //服务器成功响应处理函数
-                {
-                    if (typeof (data.error) != 'undefined' && data.error != '') {
-                        alert(data.error);
-                    } else {
-                        $("input[name=Path]").val(data.filePath);
-                        alert(data.msg);
-                    }
-                },
-                error: function (data, status, e)//服务器响应失败处理函数
-                {
-                    alert(e);
-                }
-            }
-            );
-    }
 </script>
 <div>
+    <table class="table table-striped">
+        <thead><tr><th>名称</th><th>歌手</th><th>流派</th><th>分享人</th><th colspan="2">操作</th></tr></thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SongTitle</td>
+                <td>@item.Singer.SingerName</td>
+                <td>@item.School.SchoolDesc</td>
+                <td>@item.Fancier.FancierName</td>
+                <td colspan="2">
+                    @Html.ActionLink("Update", "Update", "Upload", new
+               {
+                   id = item.SongId
+
+               }, new { @class = "btn btn-xs btn-warning" })
+                    @Html.ActionLink("Delete", "Delete", "Upload", new
+               {
+                   id = item.SongId
+
+               }, new { @class = "btn btn-xs btn-danger" })
+                </td>
+            </tr>
+        }
+    </table>
+
     <form method="post" action="Upload/Add">
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -49,7 +53,10 @@
                 <table class="table table-striped">
                     <tr><td>歌曲名称:</td><td><input type="text" name="SongTitle" required autofocus /></td></tr>
                     <tr><td>选择文件:</td><td><input type="file" id="file1" name="file1" /></td></tr>
-                    <tr><td colspan="2"><input  class="btn btn-success" id="btnUpload" type="button" value="上传" /></td></tr>
+                    <tr>
+                        <td><input class="btn btn-success" id="btnUpload" type="button" value="上传" /></td>
+                        <td><label id="lblFilepath"></label></td>
+                    </tr>
                     <tr>
                         <td>流派:</td>
                         <td>
@@ -85,8 +92,8 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <input type="submit" class="btn btn-primary" value="添加" />
-                            <input type="button" class="btn btn-sm btn-warning" onclick="location.href='Admin_home/index'" value="取消" />
+                            <input type="submit" class="btn btn-primary" onclick="return checkFile();" value="添加" />
+                            <input type="button" class="btn btn-sm btn-warning" onclick="location.href = 'Admin_home/index'" value="取消" />
                         </td>
                     </tr>
                 </table>

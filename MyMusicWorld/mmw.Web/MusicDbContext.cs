@@ -21,7 +21,8 @@ namespace mmw.Web
 
         public MusicDbContext() : base("name=mmwDB")
         {
-            Database.SetInitializer<MusicDbContext>(new MyCreateDatabaseIfNotExists());
+            //Database.SetInitializer<MusicDbContext>(new MyCreateDatabaseIfNotExists());
+            Database.SetInitializer<MusicDbContext>(null);
         }   
     }
 

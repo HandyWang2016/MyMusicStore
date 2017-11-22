@@ -94,12 +94,44 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="HtmlDemo.html" />
+    <Content Include="Images\1.png" />
+    <Content Include="Images\2.jpg" />
     <Content Include="Images\2014092917281421.jpg" />
     <Content Include="Images\2014092917281677.jpg" />
     <Content Include="Images\2017010.jpg" />
     <Content Include="Images\headBanner_old.jpg" />
     <Content Include="Images\headBanner.jpg" />
     <Content Include="Plugins\ajaxfileupload.js" />
+    <Content Include="Plugins\jplayer\jplayer.playlist.min.js" />
+    <Content Include="Plugins\jplayer\jquery.jplayer.inspector.min.js" />
+    <Content Include="Plugins\jplayer\jquery.jplayer.min.js" />
+    <Content Include="Plugins\jplayer\jquery.jplayer.swf" />
+    <Content Include="Plugins\jplayer\jquery.min.js" />
+    <Content Include="Plugins\jplayer\skin\blue.monday\jplayer.blue.monday.css" />
+    <Content Include="Plugins\jplayer\skin\blue.monday\jplayer.blue.monday.jpg" />
+    <Content Include="Plugins\jplayer\skin\blue.monday\jplayer.blue.monday.seeking.gif" />
+    <Content Include="Plugins\jplayer\skin\blue.monday\jplayer.blue.monday.video.play.png" />
+    <Content Include="Plugins\jplayer\skin\blue.monday\mustache\jplayer.blue.monday.audio.playlist.html" />
+    <Content Include="Plugins\jplayer\skin\blue.monday\mustache\jplayer.blue.monday.audio.single.html" />
+    <Content Include="Plugins\jplayer\skin\blue.monday\mustache\jplayer.blue.monday.audio.stream.html" />
+    <Content Include="Plugins\jplayer\skin\blue.monday\mustache\jplayer.blue.monday.video.playlist.html" />
+    <Content Include="Plugins\jplayer\skin\blue.monday\mustache\jplayer.blue.monday.video.single.html" />
+    <Content Include="Plugins\jplayer\skin\circle.player\bgr.jpg" />
+    <Content Include="Plugins\jplayer\skin\circle.player\buffer.png" />
+    <Content Include="Plugins\jplayer\skin\circle.player\circle.player.css" />
+    <Content Include="Plugins\jplayer\skin\circle.player\controls.jpg" />
+    <Content Include="Plugins\jplayer\skin\circle.player\progress.png" />
+    <Content Include="Plugins\jplayer\skin\circle.player\progress_sprite.jpg" />
+    <Content Include="Plugins\jplayer\skin\pink.flag\jplayer.pink.flag.css" />
+    <Content Include="Plugins\jplayer\skin\pink.flag\jplayer.pink.flag.jpg" />
+    <Content Include="Plugins\jplayer\skin\pink.flag\jplayer.pink.flag.seeking.gif" />
+    <Content Include="Plugins\jplayer\skin\pink.flag\jplayer.pink.flag.video.play.png" />
+    <Content Include="Plugins\jplayer\skin\pink.flag\mustache\jplayer.pink.flag.audio.playlist.html" />
+    <Content Include="Plugins\jplayer\skin\pink.flag\mustache\jplayer.pink.flag.audio.single.html" />
+    <Content Include="Plugins\jplayer\skin\pink.flag\mustache\jplayer.pink.flag.audio.stream.html" />
+    <Content Include="Plugins\jplayer\skin\pink.flag\mustache\jplayer.pink.flag.video.playlist.html" />
+    <Content Include="Plugins\jplayer\skin\pink.flag\mustache\jplayer.pink.flag.video.single.html" />
     <Content Include="Plugins\musicplayer_1.0.1\demo\css\demo.css" />
     <Content Include="Plugins\musicplayer_1.0.1\demo\images\bg.jpg" />
     <Content Include="Plugins\musicplayer_1.0.1\demo\images\title.png" />
@@ -143,12 +175,18 @@
     <Content Include="Plugins\musicplayer_1.0.1\demo\fonts\Lato-Italic.ttf" />
     <Content Include="Plugins\musicplayer_1.0.1\demo\fonts\Lato-Regular.ttf" />
     <Content Include="Plugins\musicplayer_1.0.1\demo\mix\1.ogg" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\clientJS\common.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\unslider\css\unslider-dots.css" />
+    <Content Include="Scripts\unslider\css\unslider.css" />
+    <Content Include="Scripts\unslider\js\jquery.event.move.js" />
+    <Content Include="Scripts\unslider\js\jquery.event.swipe.js" />
+    <Content Include="Scripts\unslider\js\unslider-min.js" />
+    <Content Include="Scripts\unslider\js\unslider.js" />
     <Content Include="SongRepository\1.mp3" />
+    <Content Include="Songs\山沟沟.mp3" />
+    <Content Include="Songs\空城-金志文.mp3" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -186,7 +224,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Area\Index.cshtml" />
     <Content Include="Views\Grade\Index.cshtml" />
     <Content Include="Views\Singer\Index.cshtml" />
@@ -195,6 +232,8 @@
     <Content Include="Views\Admin_Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout_admin.cshtml" />
     <Content Include="Views\School\Index.cshtml" />
+    <Content Include="Views\Home\Index_new.cshtml" />
+    <Content Include="Views\Home\Index_List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -204,7 +243,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Songs\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Songs\" />
   </ItemGroup>
